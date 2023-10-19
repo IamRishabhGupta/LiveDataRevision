@@ -1,16 +1,20 @@
 package com.example.livedatarevision
 
 import android.view.View
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class MainViewModel:ViewModel() {
-    val factsLiveData=MutableLiveData<String>("This is a fact")
+   private val factsLiveDataObject=MutableLiveData<String>("This is a fact")
+    val factsLiveData:LiveData<String>
+        get()=factsLiveDataObject
+
 
 
 
     fun updateLiveData()
     {
-        factsLiveData.value="Hello Ji, Ki haal Chaal?"
+        factsLiveDataObject .value="Hello Ji, Ki haal Chaal?"
     }
 }
